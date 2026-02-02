@@ -1,0 +1,4 @@
+.env
+ medical_env/
+faiss_index/
+__pycache__/
