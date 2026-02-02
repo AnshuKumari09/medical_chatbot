@@ -3,7 +3,13 @@ services:
     name: Medical-Chat
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app4:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn app_with_rag:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1
     envVars:
       - key: GROQ_API
         sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_INDEX
+        value: medical-docs
+      - key: SECRET_KEY
+        value: your-random-secret-key-here
