@@ -1,6 +1,7 @@
 services:
   - type: web
     name: Medical-Chat
+    runtime: python  # ⬅️ YE ADD KARO
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app_with_rag:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1
@@ -11,5 +12,4 @@ services:
         sync: false
       - key: PINECONE_INDEX
         value: medical-docs
-      - key: SECRET_KEY
-        value: your-random-secret-key-here
+
