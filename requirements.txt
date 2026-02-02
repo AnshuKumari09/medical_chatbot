@@ -1,17 +1,16 @@
-# Minimal version - sirf zaroori packages
-flask==3.0.0
-python-dotenv==1.0.0
-langchain==0.1.0
-langchain-groq==0.0.1
-langchain-community==0.0.10
-langchain-core==0.1.10
-langchain-huggingface==0.0.1
-langchain-pinecone==0.0.1
-langchain-text-splitters==0.0.1
-pinecone-client==3.0.0
-pypdf==3.17.4
-sentence-transformers==2.3.1
-gunicorn==21.2.0
-werkzeug==3.0.1
+flask==3.1.2
+python-dotenv==1.2.1
+langchain==0.3.13
+langchain-groq==0.2.1
+langchain-community==0.3.13
+langchain-core==0.3.28
+langchain-huggingface==0.1.2
+langchain-pinecone==0.2.13
+langchain-text-splitters==0.3.4
+pinecone-client==5.0.1
+pypdf==6.6.2
+sentence-transformers==3.3.1
+gunicorn==23.0.0
+werkzeug==3.1.5
 
 
