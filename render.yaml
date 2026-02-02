@@ -1,15 +1,24 @@
 services:
   - type: web
-    name: Medical-Chat
-    runtime: python  # ⬅️ YE ADD KARO
+    name: medical_chatbot
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app_with_rag:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1
+    region: virginia
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app_with_pinecone:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1"
     envVars:
-      - key: GROQ_API
-        sync: false
-      - key: PINECONE_API_KEY
-        sync: false
-      - key: PINECONE_INDEX
-        value: medical-docs
+      - key: PYTHON_VERSION
+        value: "3.10"
+```
+
+### Step 2: Fix your folder structure
+```
+medical_chatbot/
+├── app_with_pinecone.py
+├── requirements.txt
+├── render.yaml
+├── .env (local only, don't push)
+└── templates/
+    ├── index.html
+    └── admin_pinecone.html
 
