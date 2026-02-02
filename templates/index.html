@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Medical Chatbot</title>
+</head>
+<body>
+
+<h2>Basic Medical Chatbot</h2>
+
+<p style="color:red;">
+⚠️ This chatbot provides medical information only. Please consult a doctor.
+</p>
+
+<form id="chat-form">
+    <input type="text" id="msg" placeholder="Type message..." required>
+    <button type="submit">Send</button>
+</form>
+
+<div id="chat-box"
+     style="border:1px solid #ccc; padding:10px; width:400px; height:300px; overflow-y:auto;">
+</div>
+
+<script>
+document.getElementById("chat-form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let msg = document.getElementById("msg").value;
+    let box = document.getElementById("chat-box");
+
+    box.innerHTML += "<p><b>You:</b> " + msg + "</p>";
+
+    fetch("/get", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "msg=" + encodeURIComponent(msg)
+    })
+    .then(res => res.text())
+    .then(data => {
+        box.innerHTML += "<p><b>Bot:</b> " + data + "</p>";
+        box.scrollTop = box.scrollHeight;
+    });
+
+    document.getElementById("msg").value = "";
+});
+</script>
+
+</body>
+</html>
