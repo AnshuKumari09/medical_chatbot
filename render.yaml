@@ -9,16 +9,6 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.10"
-```
 
-### Step 2: Fix your folder structure
-```
-medical_chatbot/
-├── app_with_pinecone.py
-├── requirements.txt
-├── render.yaml
-├── .env (local only, don't push)
-└── templates/
-    ├── index.html
-    └── admin_pinecone.html
+
 
