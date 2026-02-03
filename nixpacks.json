@@ -1,0 +1,5 @@
+{
+  "providers": ["python"],
+  "buildCommand": "pip install --no-cache-dir -r requirements.txt",
+  "startCommand": "gunicorn app_with_pinecone:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1"
+}
