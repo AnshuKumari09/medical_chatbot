@@ -394,10 +394,13 @@ def init_app():
 
 
 # ============================================================================
-# RUN
+# RUN - IMPORTANT: Initialize at module level for Gunicorn
 # ============================================================================
 
+# Initialize app when module is imported (needed for Gunicorn)
+init_app()
+
 if __name__ == "__main__":
-    init_app()
+    # This only runs when using `python app_with_pinecone.py` directly
     port = int(os.getenv("PORT", 5000))
     app.run(debug=False, host="0.0.0.0", port=port)
