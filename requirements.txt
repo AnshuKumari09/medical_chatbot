@@ -1,30 +1,23 @@
-# Core Flask
+# Core Flask (lightweight)
 flask==3.1.0
 python-dotenv==1.0.1
 gunicorn==23.0.0
 werkzeug==3.1.3
 
-# LangChain
-langchain
-langchain-core
-langchain-groq
-langchain-community
-langchain-text-splitters
-langchain-huggingface
-langchain-pinecone
+# LangChain (only needed components)
+langchain==1.2.9
+langchain-core==1.2.9
+langchain-groq==1.1.2
+langchain-community==0.4.1
+langchain-text-splitters==1.1.0
 
-# Pinecone
-pinecone
+# Pinecone (lightweight - NO local embeddings)
+pinecone==7.3.0
 
-# Embeddings (lightweight version)
-sentence-transformers
-
-# PDF
-pypdf
-cryptography
+# PDF Processing
+pypdf==6.6.2
 
 # Utilities  
-requests
-pydantic
-pydantic-settings
-
+requests==2.32.5
+pydantic==2.12.5
+pydantic-settings==2.12.0
