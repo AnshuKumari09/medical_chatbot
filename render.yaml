@@ -1,17 +1,17 @@
 services:
   - type: web
-    name: medical_chatbot
+    name: medical-chatbot-optimized
     env: python
-    region: virginia
+    region: singapore  # or oregon (closer regions)
     plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app_optimized:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1"
+    buildCommand: "pip install --no-cache-dir -r requirements_optimized.txt"
+    startCommand: "gunicorn app_optimized:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1 --max-requests 100 --max-requests-jitter 10"
     envVars:
       - key: PYTHON_VERSION
-        value: "3.10"
+        value: "3.11"  # Latest stable
       - key: PINECONE_API_KEY
-        sync: false
-      - key: HF_TOKEN
         sync: false
       - key: GROQ_API
         sync: false
+      - key: PINECONE_INDEX
+        value: "medical-docs"
