@@ -5,10 +5,13 @@ services:
     region: virginia
     plan: free
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app_with_pinecone:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1"
+    startCommand: "gunicorn app_optimized:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1"
     envVars:
       - key: PYTHON_VERSION
         value: "3.10"
-
-
-
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+      - key: GROQ_API
+        sync: false
