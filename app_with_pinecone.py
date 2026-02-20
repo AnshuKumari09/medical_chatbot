@@ -10,7 +10,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
+from flask_cors import CORS
 # Pinecone imports
 try:
     from pinecone import Pinecone, ServerlessSpec
@@ -22,6 +22,7 @@ except ImportError:
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app) 
 app.secret_key = os.getenv("SECRET_KEY", "your-secret-key-change-this")
 
 # ============================================================================
@@ -2755,6 +2756,7 @@ if __name__ == "__main__":
 #     # This only runs when using `python app_with_pinecone.py` directly
 #     port = int(os.getenv("PORT", 5000))
 #     app.run(debug=False, host="0.0.0.0", port=port)
+
 
 
 
